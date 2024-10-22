@@ -35,4 +35,18 @@ const exchangeRates = {
       "INR": 1  
     }
   };
-  
+
+let btn=document.getElementById('convertButton')
+function check() {
+  let amount=document.getElementById('amount').value
+  let tocurr=document.getElementById('toCurrency').value
+  let fromcurr=document.getElementById('fromCurrency').value
+  if(amount===''){
+    alert('enter some amount')
+  }
+  const exchangerate=exchangeRates[fromcurr][tocurr];
+  const newamount=exchangerate*amount
+  let result=document.getElementById("coversion-result")
+  result.innerText=`your conversion amount ${newamount}`
+}
+btn.addEventListener('click',check)
